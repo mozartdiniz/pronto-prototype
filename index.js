@@ -124,7 +124,7 @@ const initmap = (ships) => {
     });
 }
 
-fetch('../ships.json')
+fetch('ships.json')
     .then((response) => response.json())
     .then((data) => {
         const ships = shipsToGeoJSON(data);
