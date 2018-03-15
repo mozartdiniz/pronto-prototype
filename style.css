@@ -83,6 +83,7 @@ html, body, #map {
     z-index: 10;
     padding: 0 20px;
     box-sizing: border-box;
+    border-top: 1px solid #c2deea;
 }
 
 .showShipDetail {
@@ -126,4 +127,8 @@ html, body, #map {
   padding-right: 50px;
   font-size: 14px;
   font-weight: bold;
+}
+
+body .mapboxgl-popup .mapboxgl-popup-content {
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.23);
 }
