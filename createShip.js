@@ -8,6 +8,10 @@ const formatTime = (etaTime) => {
     return `${dateTime.getDate()}/${dateTime.getMonth() + 1} ${dateTime.getHours()}:${dateTime.getMinutes()}`;
 }
 
+const decideVesselColor = (feature) => (feature.properties.late) ? 'red' : '#001F4B';
+
+const decideLabelColor = (feature) => (feature.properties.alerts) ? 'rgba(255, 0, 0, 0.77)' : 'rgba(24, 154, 0, 0.8)';
+
 const createExtendedLabel = (feature, map) => {
     const contentContainer = document.createElement('div');
     contentContainer.classList.add('content-container');
@@ -30,6 +34,8 @@ const createExtendedLabel = (feature, map) => {
     const etaValue = document.createElement('div');
     etaValue.classList.add('eta-value');
 
+    contentContainer.style.backgroundColor = decideLabelColor(feature);
+
     nameContainer.innerHTML = feature.properties.name;
     nextContainer.innerHTML = `Next: ${feature.properties.fakeNextDestination}`;
     etaValue.innerHTML = formatTime(feature.properties.eta);
@@ -45,7 +51,7 @@ const createExtendedLabel = (feature, map) => {
     return contentContainer;
 }
 
-const createRegularLabel = (content, map) => {
+const createRegularLabel = (content, map, feature) => {
     const zoomLevel = Math.round(map.getZoom());
     const contentContainer = document.createElement('div');
     contentContainer.classList.add('content-container');
@@ -55,6 +61,8 @@ const createRegularLabel = (content, map) => {
 
     const shortNameContainer = document.createElement('div');
     shortNameContainer.classList.add('short-name-container');
+
+    contentContainer.style.backgroundColor = decideLabelColor(feature);
 
     nameContainer.innerHTML = content.name;
     shortNameContainer.innerHTML = content.shortName;
@@ -69,14 +77,14 @@ const createRegularLabel = (content, map) => {
     return contentContainer;
 }
 
-const createShipLabel = (content, map) => {
+const createShipLabel = (content, map, feature) => {
     const zoomLevel = Math.round(map.getZoom());
     const el = document.createElement('div');
 
     el.classList.add('pronto-popup');
     el.classList.add(createZoomStyleClassForPopups(zoomLevel));
 
-    el.appendChild(createRegularLabel(content, map));
+    el.appendChild(createRegularLabel(content, map, feature));
 
     return new mapboxgl.Marker(el);
 }
@@ -88,7 +96,7 @@ const createShip = (feature, map) => {
         shortName: feature.properties.shortName
     };
 
-    const label = createShipLabel(shipNames, map)
+    const label = createShipLabel(shipNames, map, feature)
         .setLngLat(coords)
         .addTo(map);
 
@@ -98,6 +106,7 @@ const createShip = (feature, map) => {
     const icon = document.createElement('div');
     icon.classList.add('cluster-marker-icon');
     icon.style.transform = rotateShip(feature.properties.rotation);
+    icon.style.backgroundColor = decideVesselColor(feature);
 
     icon.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -109,7 +118,7 @@ const createShip = (feature, map) => {
     });
 
     icon.addEventListener('mouseout', (e) => {
-        label._element.innerHTML = createRegularLabel(shipNames, map).outerHTML;
+        label._element.innerHTML = createRegularLabel(shipNames, map, feature).outerHTML;
     });
 
     el.appendChild(icon);

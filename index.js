@@ -45,6 +45,8 @@ const shipsToGeoJSON = (ships) => {
                 long_x: ship.location.longitude,
                 rotation: ship.trueHeading,
                 eta: ship.eta,
+                late: ship.late,
+                alerts: ship.alerts,
                 fakeNextDestination: 'ECT DDE',
             },
             geometry: {
