@@ -8,7 +8,7 @@ const formatTime = (etaTime) => {
     return `${dateTime.getDate()}/${dateTime.getMonth() + 1} ${dateTime.getHours()}:${dateTime.getMinutes()}`;
 }
 
-const decideVesselColor = (feature) => (feature.properties.late) ? 'red' : '#001F4B';
+const decideVesselColor = (feature) => (feature.properties.late) ? 'red' : '#007b34';
 
 const decideLabelColor = (feature) => (feature.properties.alerts) ? 'rgba(255, 0, 0, 0.77)' : 'rgba(24, 154, 0, 0.8)';
 
