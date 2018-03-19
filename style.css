@@ -38,9 +38,14 @@ html, body, #map {
     background: rgba(24, 154, 0, 0.8);
     display: inline-block;
     border-radius: 3px;
-    padding: 0px 5px;
+    padding: 0px 23px 0 5px;
     color: white;
     font-size: 12px;
+    position: relative;
+}
+
+.eta-label {
+  text-transform: UPPERCASE;
 }
 
 .mapboxgl-popup .mapboxgl-popup-content {
@@ -49,6 +54,7 @@ html, body, #map {
 
 .eta-container {
     width: 120px;
+    float: left;
 }
 
 .name-container {
@@ -131,4 +137,39 @@ html, body, #map {
 
 body .mapboxgl-popup .mapboxgl-popup-content {
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.23);
+}
+
+.alert-icon {
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  background: #FFF;
+}
+
+.alert-icon:before {
+  content: "!";
+  position: absolute;
+  color: #001F4B;
+  font-size: 12px;
+  left: 6px;
+  top: -2px;
+  font-weight: bold;
+}
+
+.shipmaster {
+  width: 160px;
+  float: left;
+  position: relative;
+}
+
+.shipmaster-value {
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.shipmaster div{
+  float: left;
 }

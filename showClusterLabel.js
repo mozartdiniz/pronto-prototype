@@ -8,7 +8,7 @@ const showClusterLabel = (e, map, popup, cluster) => {
     }
 
     const clusterId = features[0].properties.cluster_id;
-    const allFeatures = cluster.getLeaves(clusterId, Math.floor(map.getZoom()), Infinity);        
+    const allFeatures = cluster.getLeaves(clusterId, Math.floor(map.getZoom()), Infinity);
     const featuresNames = allFeatures.map((feature) => feature.properties.name);
 
     popup.setLngLat(features[0].geometry.coordinates)

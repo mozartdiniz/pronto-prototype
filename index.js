@@ -1,5 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGJyLXByb250byIsImEiOiJjamM2YnJhczYxZHU2MnhtbXBoeXZyNWM4In0.L0_kvOmX0P--xUZNMw5z5Q';
 
+const ONE_DAY = 86400000;
+
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/hbr-pronto/cjee5jd8qhk822qpdv9rgofta',
@@ -45,9 +47,15 @@ const shipsToGeoJSON = (ships) => {
                 long_x: ship.location.longitude,
                 rotation: ship.trueHeading,
                 eta: ship.eta,
+                ptd: ship.eta + ONE_DAY,
+                pta: ship.eta,
                 late: ship.late,
                 alerts: ship.alerts,
                 fakeNextDestination: 'ECT DDE',
+                plannedCaptain: ship.plannedCaptain,
+                captainOnBoard: ship.captainOnBoard,
+                draught: (ship.dimensions) ? ship.dimensions.draught : 'n/a',
+                speed: ship.speedOverGround,
             },
             geometry: {
                 type: 'Point',

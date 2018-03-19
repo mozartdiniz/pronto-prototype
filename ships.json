@@ -553,11 +553,11 @@
       "_id": "304972000",
       "mmsi": "304972000",
       "location": {
-        "latitude": 51.9482,
-        "longitude": 3.98739,
+        "latitude": 51.99844823988286,
+        "longitude": 3.84647463261868,
         "coordinates": [
-          3.98739,
-          51.9482
+          3.84647463261868,
+          51.99844823988286
         ],
         "type": "Point"
       },
@@ -565,15 +565,17 @@
       "timeLastUpdate": 1520843134001,
       "imoNumber": "9349186",
       "name": "ALDEBARAN J",
+      "plannedCaptain": true,
+      "captainOnBoard": true,
       "shipType": "OTHER_TYPE",
       "status": "MOORED",
-      "speedOverGround": 0,
+      "speedOverGround": 20,
       "callSign": "V2CB5",
       "coms": 0,
       "destination": "RWG",
       "rateOfTurn": 0,
       "positionAccuracy": "LOW",
-      "trueHeading": 34,
+      "trueHeading": 77,
       "specialManeuverIndicator": "NOT_AVAILABLE",
       "aisVersion": "ITU_R_M1371_3",
       "positionOfTransponder": {
@@ -590,11 +592,11 @@
       "width": 24,
       "length": 140,
       "locationStern": {
-        "latitude": 51.94810318412653,
-        "longitude": 3.9872840529688345,
+        "latitude": 51.99844823988286,
+        "longitude": 3.84647463261868,
         "coordinates": [
-          3.9872840529688345,
-          51.94810318412653
+          3.84647463261868,
+          51.99844823988286
         ],
         "type": "Point"
       },
@@ -4392,13 +4394,15 @@
       "name": "MSC BREMEN",
       "shipType": "CARGO_HAZCAT_A",
       "status": "MOORED",
-      "speedOverGround": 0,
+      "speedOverGround": 40,
+      "plannedCaptain": true,
+      "captainOnBoard": false,
       "callSign": "A8LK7",
       "coms": 0,
       "destination": "BEANR",
       "rateOfTurn": 0,
       "positionAccuracy": "LOW",
-      "trueHeading": 188,
+      "trueHeading": 56,
       "specialManeuverIndicator": "NOT_AVAILABLE",
       "aisVersion": "ITU_R_M1371_1",
       "positionOfTransponder": {
@@ -5906,6 +5910,8 @@
       "courseOverGround": 165.3,
       "timeLastUpdate": 1520849539900,
       "name": "BOW 1",
+      "plannedCaptain": true,
+      "captainOnBoard": true,
       "shipType": "CARGO",
       "status": "UNDER_WAY_USING_ENGINE",
       "speedOverGround": 0,
@@ -6633,7 +6639,7 @@
       "name": "FESCO ASKOLD",
       "shipType": "CARGO",
       "status": "AT_ANCHOR",
-      "speedOverGround": 0,
+      "speedOverGround": 20,
       "callSign": "C4JA2",
       "coms": 0,
       "destination": "NL RTM >BEANR",

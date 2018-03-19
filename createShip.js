@@ -1,3 +1,5 @@
+let menuTimeout = 0;
+
 const createZoomStyleClassForPopups = (zoomLevel) => `zoom-${zoomLevel}`;
 
 const rotateShip = (rotation) => `rotate(${rotation}deg)`;
@@ -12,9 +14,79 @@ const decideVesselColor = (feature) => (feature.properties.late) ? 'red' : '#007
 
 const decideLabelColor = (feature) => (feature.properties.alerts) ? 'rgba(255, 0, 0, 0.77)' : 'rgba(24, 154, 0, 0.8)';
 
+const createAlertIcon = (feature) => {
+  const el = document.createElement('div');
+
+  if (!feature.properties.alerts) {
+    return el;
+  }
+
+  el.classList.add('alert-icon');
+
+  return el;
+}
+
+const isVesselAlongsideABerth = (feature) => (feature.properties.speed);
+
+const createShipmasterStatus = (feature) => {
+  const el = document.createElement('div');
+  const label = document.createElement('div');
+  const value = document.createElement('div');
+
+  el.classList.add('shipmaster');
+  value.classList.add('shipmaster-value');
+
+  label.innerHTML = 'STATUS: ';
+
+  if (!feature.properties.plannedCaptain && !feature.properties.captainOnBoard) {
+    return el;
+  }
+
+  if (feature.properties.plannedCaptain && !feature.properties.captainOnBoard) {
+    value.innerHTML = 'PILOT ON BOARD';
+
+    el.appendChild(label);
+    el.appendChild(value);
+
+    return el;
+  }
+
+  value.innerHTML = 'PILOT ORDERED';
+
+  el.appendChild(label);
+  el.appendChild(value);
+
+  return el;
+}
+
+const timeElements = (feature, labelText) => {
+  const container = document.createElement('div');
+  container.classList.add('eta-container');
+
+  const label = document.createElement('div');
+  label.classList.add('eta-label');
+
+  const icon = document.createElement('div');
+  icon.classList.add('eta-icon');
+
+  const value = document.createElement('div');
+  value.classList.add('eta-value');
+
+  value.innerHTML = formatTime(feature.properties[labelText]);
+  label.innerHTML = labelText;
+
+  container.appendChild(label);
+  container.appendChild(icon);
+  container.appendChild(value);
+
+  return container;
+}
+
 const createExtendedLabel = (feature, map) => {
     const contentContainer = document.createElement('div');
     contentContainer.classList.add('content-container');
+
+    contentContainer.appendChild(createAlertIcon(feature));
 
     const nameContainer = document.createElement('div');
     nameContainer.classList.add('extended-name-container');
@@ -22,31 +94,27 @@ const createExtendedLabel = (feature, map) => {
     const nextContainer = document.createElement('div');
     nextContainer.classList.add('next-container');
 
-    const etaContainer = document.createElement('div');
-    etaContainer.classList.add('eta-container');
-
-    const etaLabel = document.createElement('div');
-    etaLabel.classList.add('eta-label');
-
-    const etaIcon = document.createElement('div');
-    etaIcon.classList.add('eta-icon');
-
-    const etaValue = document.createElement('div');
-    etaValue.classList.add('eta-value');
+    const draught = document.createElement('div');
 
     contentContainer.style.backgroundColor = decideLabelColor(feature);
 
     nameContainer.innerHTML = feature.properties.name;
     nextContainer.innerHTML = `Next: ${feature.properties.fakeNextDestination}`;
-    etaValue.innerHTML = formatTime(feature.properties.eta);
-    etaLabel.innerHTML = 'ETA';
+    draught.innerHTML = `DRAUGHT: ${feature.properties.draught}`;
 
-    etaContainer.appendChild(etaLabel);
-    etaContainer.appendChild(etaIcon);
-    etaContainer.appendChild(etaValue);
     contentContainer.appendChild(nameContainer);
     contentContainer.appendChild(nextContainer);
-    contentContainer.appendChild(etaContainer);
+
+    if (isVesselAlongsideABerth(feature)) {
+      contentContainer.appendChild(timeElements(feature, 'pta'));
+      contentContainer.appendChild(timeElements(feature, 'ptd'));
+    } else {
+      contentContainer.appendChild(timeElements(feature, 'eta'));
+      contentContainer.appendChild(timeElements(feature, 'ptd'));
+    }
+
+    contentContainer.appendChild(draught);
+    contentContainer.appendChild(createShipmasterStatus(feature));
 
     return contentContainer;
 }
@@ -80,11 +148,31 @@ const createRegularLabel = (content, map, feature) => {
 const createShipLabel = (content, map, feature) => {
     const zoomLevel = Math.round(map.getZoom());
     const el = document.createElement('div');
+    const shipNames = {
+      name: feature.properties.name,
+      shortName: feature.properties.shortName
+    };
 
     el.classList.add('pronto-popup');
     el.classList.add(createZoomStyleClassForPopups(zoomLevel));
 
     el.appendChild(createRegularLabel(content, map, feature));
+    // el.appendChild(createExtendedLabel(feature));
+
+    const extendedLabel = createExtendedLabel(feature);
+
+    extendedLabel.addEventListener('mouseout', () => {
+      menuTimeout = setTimeout(() => {
+        el.removeChild(el.firstChild);
+        el.appendChild(createRegularLabel(shipNames, map, feature));
+      }, 200);
+    });
+
+    el.addEventListener('mouseover', (e) => {
+      clearTimeout(menuTimeout);
+      el.removeChild(el.firstChild);
+      el.appendChild(extendedLabel);
+    });
 
     return new mapboxgl.Marker(el);
 }
@@ -113,13 +201,13 @@ const createShip = (feature, map) => {
         toggleShipDetailPanel(feature);
     });
 
-    icon.addEventListener('mouseover', (e) => {
-        label._element.innerHTML = createExtendedLabel(feature).outerHTML;
-    });
+    // icon.addEventListener('mouseover', (e) => {
+    //     label._element.innerHTML = createExtendedLabel(feature).outerHTML;
+    // });
 
-    icon.addEventListener('mouseout', (e) => {
-        label._element.innerHTML = createRegularLabel(shipNames, map, feature).outerHTML;
-    });
+    // icon.addEventListener('mouseout', (e) => {
+    //     label._element.innerHTML = createRegularLabel(shipNames, map, feature).outerHTML;
+    // });
 
     el.appendChild(icon);
 
