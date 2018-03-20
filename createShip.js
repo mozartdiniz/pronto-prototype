@@ -114,6 +114,7 @@ const createExtendedLabel = (feature, map) => {
     nextContainer.classList.add('next-container');
 
     const draught = document.createElement('div');
+    draught.classList.add('draught-container');
 
     contentContainer.style.backgroundColor = decideLabelColor(feature);
 
