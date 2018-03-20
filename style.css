@@ -17,10 +17,9 @@ html, body, #map {
     height: 20px;
 }
 
-.cluster-marker-icon {
+.ship-arrow-icon {
     width: 15px;
     height: 15px;
-    background: #001F4B;
     margin-top: 3px;
     margin-left: 4px;
     -webkit-mask-image: url(up_arrow.svg);
@@ -29,13 +28,25 @@ html, body, #map {
     mask-size: 100%;
 }
 
+.ship-circle-icon {
+  width: 13px;
+  height: 13px;
+  margin-top: 3px;
+  margin-left: 9px;
+  -webkit-mask-image: url(circle.svg);
+  -webkit-mask-size: 100%;
+  mask-image: url(circle.svg);
+  mask-size: 100%;
+}
+
+
 .pronto-popup {
     width: 0px;
     margin-left: 13px;
 }
 
 .content-container {
-    background: rgba(24, 154, 0, 0.8);
+    background: rgba(24, 154, 0, 1);
     display: inline-block;
     border-radius: 3px;
     padding: 0px 23px 0 5px;

@@ -4,6 +4,8 @@ const createZoomStyleClassForPopups = (zoomLevel) => `zoom-${zoomLevel}`;
 
 const rotateShip = (rotation) => `rotate(${rotation}deg)`;
 
+const isVesselAlongsideABerth = (feature) => (!feature.properties.speed);
+
 const formatTime = (etaTime) => {
     const dateTime = new Date(etaTime);
 
@@ -12,7 +14,26 @@ const formatTime = (etaTime) => {
 
 const decideVesselColor = (feature) => (feature.properties.late) ? 'red' : '#007b34';
 
-const decideLabelColor = (feature) => (feature.properties.alerts) ? 'rgba(255, 0, 0, 0.77)' : 'rgba(24, 154, 0, 0.8)';
+const decideLabelColor = (feature) => (feature.properties.alerts) ? 'rgba(255, 0, 0, 1)' : 'rgba(24, 154, 0, 1)';
+
+const createShipIcon = (feature) => {
+  const icon = document.createElement('div');
+  icon.style.backgroundColor = decideVesselColor(feature);
+
+  icon.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleShipDetailPanel(feature);
+  });
+
+  if (isVesselAlongsideABerth(feature)) {
+    icon.classList.add('ship-circle-icon');
+  } else {
+    icon.classList.add('ship-arrow-icon');
+    icon.style.transform = rotateShip(feature.properties.rotation);
+  }
+
+  return icon;
+}
 
 const createAlertIcon = (feature) => {
   const el = document.createElement('div');
@@ -25,8 +46,6 @@ const createAlertIcon = (feature) => {
 
   return el;
 }
-
-const isVesselAlongsideABerth = (feature) => (feature.properties.speed);
 
 const createShipmasterStatus = (feature) => {
   const el = document.createElement('div');
@@ -106,10 +125,10 @@ const createExtendedLabel = (feature, map) => {
     contentContainer.appendChild(nextContainer);
 
     if (isVesselAlongsideABerth(feature)) {
-      contentContainer.appendChild(timeElements(feature, 'pta'));
+      contentContainer.appendChild(timeElements(feature, 'eta'));
       contentContainer.appendChild(timeElements(feature, 'ptd'));
     } else {
-      contentContainer.appendChild(timeElements(feature, 'eta'));
+      contentContainer.appendChild(timeElements(feature, 'pta'));
       contentContainer.appendChild(timeElements(feature, 'ptd'));
     }
 
@@ -191,25 +210,7 @@ const createShip = (feature, map) => {
     const el = document.createElement('div');
     el.classList.add('cluster-marker');
 
-    const icon = document.createElement('div');
-    icon.classList.add('cluster-marker-icon');
-    icon.style.transform = rotateShip(feature.properties.rotation);
-    icon.style.backgroundColor = decideVesselColor(feature);
-
-    icon.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleShipDetailPanel(feature);
-    });
-
-    // icon.addEventListener('mouseover', (e) => {
-    //     label._element.innerHTML = createExtendedLabel(feature).outerHTML;
-    // });
-
-    // icon.addEventListener('mouseout', (e) => {
-    //     label._element.innerHTML = createRegularLabel(shipNames, map, feature).outerHTML;
-    // });
-
-    el.appendChild(icon);
+    el.appendChild(createShipIcon(feature));
 
     const ship = new mapboxgl.Marker(el)
         .setLngLat(coords)
