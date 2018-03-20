@@ -61,6 +61,13 @@ html, body, #map {
 
 .mapboxgl-popup .mapboxgl-popup-content {
     padding: 5px 15px 5px 15px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.mapboxgl-popup .mapboxgl-popup-content div:hover {
+  background: lightblue;
+  cursor: pointer;
 }
 
 .eta-container {
