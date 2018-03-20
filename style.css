@@ -6,10 +6,10 @@ html, body, #map {
 }
 
 #map {
-    position:absolute;
-    top:0;
-    bottom:0;
-    width:100%;
+  position: absolute;
+  top: 90px;
+  bottom: 0;
+  width: 100%;
 }
 
 .cluster-marker {
@@ -200,4 +200,216 @@ body .mapboxgl-popup .mapboxgl-popup-content {
 
 .shipmaster div{
   float: left;
+}
+
+
+/* General fake layout */
+
+.CompanyLabel--container--3z_hWoS_ p {
+  color: #001F4B;
+  font-family: "futuraBold", "Trebuchet MS", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.CompanyLabel--beta--2VVkJr4T p {
+  background-color: #FFD800;
+  padding: 3px;
+  font-size: 12px;
+  margin-top: 14px;
+}
+
+.CompanyLabel--agent--C3khF33T {
+  text-align: center;
+  padding-right: 0.625em;
+  height: 50px;
+  float: left;
+}
+
+.CompanyLabel--beta--2VVkJr4T {
+  text-align: center;
+  float: left;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--left--3syfio7V {
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--hamburger--3RBl1RdJ {
+  background-color: #001F4B;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: -webkit-radial-gradient(circle, rgba(66, 154, 209, 0.3) 50%, transparent 50%);
+  background-image: -o-radial-gradient(circle, rgba(66, 154, 209, 0.3) 50%, transparent 50%);
+  background-image: radial-gradient(circle, rgba(66, 154, 209, 0.3) 50%, transparent 50%);
+  background-position: 0 50px;
+  -webkit-transition: background-size 0.3s, background-position 0.3s step-end;
+  -o-transition: background-size 0.3s, background-position 0.3s step-end;
+  transition: background-size 0.3s, background-position 0.3s step-end;
+}
+
+.CompanyLabel--container--3z_hWoS_ {
+  height: 50px;
+}
+
+.LogoWithText--text--2LI4BpMk {
+  font-family: "futuraBold", "Trebuchet MS", Arial, sans-serif;
+  font-weight: bold;
+  color: #001F4B;
+  font-size: calc(1.8 * var(--unit));
+  padding-left: 5px;
+}
+
+.LogoWithText--icon--1-A8YYSO {
+  display: inline-block;
+  vertical-align: middle;
+  width: 25px;
+  height: auto;
+}
+
+.HeaderLogo--logo--L0XGdnQu {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--hamburger--3RBl1RdJ, .PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--action--3K0sprvP {
+  height: 24px;
+  width: 24px;
+  padding: 13px;
+  cursor: pointer;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--hamburger--3RBl1RdJ, .PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--action--3K0sprvP {
+  height: 24px;
+  width: 24px;
+  padding: 13px;
+  cursor: pointer;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--action--3K0sprvP {
+  border-left: 1px rgba(66, 154, 209, 0.3) solid;
+}
+
+.ActionPanel--action-panel {
+  text-align: left;
+  position: absolute;
+  display: none;
+  background: #429AD1;
+  z-index: 1000;
+  top: 50px;
+  height: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+}
+
+.VisualizationMethodMenu--visualizationMethodMenu {
+  height: 40px;
+  background-color: #429AD1;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.VisualizationMethodMenu--visualizationMethodMenu .VisualizationMethodMenu--visualizationMethod:not(.VisualizationMethodMenu--active) {
+  color: white;
+  background-color: transparent;
+}
+
+.VisualizationMethodMenu--visualizationMethodMenu .VisualizationMethodMenu--visualizationMethod.VisualizationMethodMenu--active {
+  color: #429AD1;
+  background-color: white;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH {
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--left--3syfio7V {
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--middle--2ODVshbA {
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--right--317ppp-H {
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--left--3syfio7V, .PrimaryMenu--primaryMenu--1MsIqASH .PrimaryMenu--right--317ppp-H {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  width: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.VisualizationMethodMenu--visualizationMethodMenu--3qVTuB9A {
+  height: 40px;
+  background-color: #429AD1;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.VisualizationMethodMenu--visualizationMethodMenu--3qVTuB9A .VisualizationMethodMenu--visualizationMethod--2uiuy318:not(.VisualizationMethodMenu--active--280nBjpL) {
+  color: white;
+  background-color: transparent;
+}
+
+.VisualizationMethodMenu--visualizationMethodMenu--3qVTuB9A .VisualizationMethodMenu--visualizationMethod--2uiuy318 {
+  display: inline-block;
+  text-transform: uppercase;
+  min-width: 70px;
+  text-align: center;
+  padding: 0 25px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 0.75em;
+  text-decoration: none;
+}
+
+.VisualizationMethodMenu--visualizationMethodMenu--3qVTuB9A .VisualizationMethodMenu--visualizationMethod--2uiuy318.VisualizationMethodMenu--active--280nBjpL {
+  color: #429AD1;
+  background-color: white;
 }
