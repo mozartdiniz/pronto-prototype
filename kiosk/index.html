@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pronto :: TV Mode</title>
+
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+  <script src="https://unpkg.com/supercluster@2.3.0/dist/supercluster.min.js"></script>
+  <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
+
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">
+      <div class="icon"></div>
+      <div class="name">Pronto</div>
+    </div>
+    <div class="tv-switch">
+      <div class="label">TV Mode</div>
+      <div class="switch"></div>
+    </div>
+    <div class="dates">
+      <div class="date">
+        <div class="icon"></div>
+        <div class="label">23 nov 2017</div>
+      </div>
+      <div class="hour">
+        <div class="icon"></div>
+        <div class="label">14:23</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="title-container">
+    <div class="title">TERMINAL PLANNING ALERTS</div>
+    <div class="berth">APMT Maasvlakte II</div>
+  </div>
+
+  <div class="alert-badget">
+      <div class="alert-icon">!</div>
+      <div class="label">10 Alerts</div>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="notifications-container">
+    <div class="notifications">
+      <div class="dates">
+        <div class="date">
+          <div class="icon"></div>
+          <div class="label">23 nov 2017</div>
+        </div>
+        <div class="hour">
+          <div class="icon"></div>
+          <div class="label">14:23</div>
+        </div>
+      </div>
+
+      <div class="notifications-line">
+        <div class="label">SHIPNAME</div>
+        <div class="colon">:</div>
+        <div class="value ship-name">Metz Maersk</div>
+      </div>
+
+      <div class="notifications-line">
+        <div class="label">BERTH</div>
+        <div class="colon">:</div>
+        <div class="value berth">APMT-DSQ</div>
+      </div>
+
+      <div class="notifications-line alert-description">
+        <div class="label">
+          ALERT INFO
+          <div class="alert-icon">!</div>
+        </div>
+
+        <div class="colon">:</div>
+        <div class="value">
+          <div class="alert-title">
+            ATA 2 HOURS EARLY
+          </div>
+          <div class="alert-text">
+            Nam accumsan orci eget metus vehicula, vitae varius neque placerat. Nulla in quam quis ipsum posuere sagittis at non metus.
+            In hac habitasse platea dictumst.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+  <script src="map.js"></script>
+</body>
+
+</html>
