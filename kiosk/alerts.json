@@ -43,7 +43,8 @@
             "message": "Pilot order for MSC ARUSHI R. and PTD terminal are not the same",
             "description": "Pilot order for MSC ARUSHI R. Mar.21 - 16:30 and the PTD terminal Mar.21 - 17:00 are not aligned",
             "date": "21 Mar 2018",
-            "time": "17:02"
+            "time": "17:02",
+            "delta": 40                        
         },
         "geometry": {
             "type": "Point",
@@ -151,7 +152,8 @@
             "message": "Vessel HOOGE is later",
             "description": "The SAMBA has no space short before arrival; the MSC ATLANTIC is still at the berth",
             "date": "22 Mar 2018",
-            "time": "09:54"            
+            "time": "09:54",
+            "delta": 20
         },
         "geometry": {
             "type": "Point",
@@ -169,7 +171,8 @@
             "message": "Vessel HOOGE is later",
             "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth",
             "date": "22 Mar 2018",
-            "time": "10:30"            
+            "time": "10:30",
+            "delta": 60
         },
         "geometry": {
             "type": "Point",

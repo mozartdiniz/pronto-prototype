@@ -109,6 +109,36 @@ const addFullscreenEvent = () => {
     el.addEventListener('click', toggleFullScreen);
 }
 
+const superFakeColorGenerator = (index) => {
+    if (index < 3) {
+        return 'background: #fed93a;';
+    }
+
+    if (index < 7) {
+        return 'background: #fb7d35;';
+    }
+
+    return 'background: #fb1c00;';
+}
+
+const populateBloombergLane = () => {
+    const el = document.querySelector('.bloomberg-alerts .bloomberg-alerts-scroll');
+    const footer = document.querySelector('.bloomberg-alerts .footer');
+    const width = Math.round(window.innerWidth / 10);
+
+    el.style.width = `${alerts.length * width}px`;
+    footer.style.width = `${alerts.length * width}px`;
+
+    alerts.forEach((alert, index) => {
+        el.innerHTML += `<div class="alert-card" style="margin-left: ${alert.properties.delta}px">
+            <div class="ship-name">
+                ${alert.properties.name}
+                <div class="ship-anchor"></div>
+            </div>
+        </div>`;
+    });
+}
+
 const init = () => {
     map.fitBounds(getCoordinates(alerts), {
         padding : {
@@ -125,6 +155,7 @@ const init = () => {
     updateScreenTime();
     updateAlertCounter();
     addFullscreenEvent();
+    populateBloombergLane();
 
     setInterval(updateScreenDate, 3600000);
     setInterval(updateScreenTime, 1000);

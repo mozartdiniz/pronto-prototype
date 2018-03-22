@@ -13,6 +13,7 @@ body {
   font-size: 24px;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 
 #map {
@@ -228,6 +229,56 @@ body {
 .notifications-line .alert-title {
   font-weight: bold;
   padding-bottom: 40px;
+}
+
+.bloomberg-alerts {
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 5;
+  overflow-y: hidden;
+  overflow-x: scroll;
+
+}
+
+.bloomberg-alerts .ship-name {
+  font-size: 17px;
+  border-radius: 70px;
+  text-align: center;
+  position: relative;
+  padding: 6px 15px;
+  white-space: nowrap;
+  background: linear-gradient(to right, #fed93a 0px,#fb1c00 100vw);
+  background-attachment: fixed;
+}
+
+.bloomberg-alerts .alert-card {
+  padding: 20px;
+  color: black;
+  float: left;
+  box-sizing: border-box;
+  height: 150px;
+}
+
+.alert-title {
+  font-weight: normal;
+}
+
+.bloomberg-alerts .footer {
+  background: linear-gradient(to right, #fed93a 0,#fb1c00 100vw);
+  height: 20px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.ship-anchor {
+  position: absolute;
+  border-left: 1px solid white;
+  height: 100px;
+  margin-top: 6px;
+  left: 50%;
 }
 
 .alert-badget {
