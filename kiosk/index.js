@@ -8,11 +8,20 @@ const updateAlertDetails = (alert) => {
     const berthName = document.querySelector('.value.berth');
     const alertTitle = document.querySelector('.alert-title');
     const alertDescription = document.querySelector('.alert-text');
+    const alertDate = document.querySelector('.notifications .dates .date .label');
+    const alertTime = document.querySelector('.notifications .dates .hour .label');    
 
     shipName.innerHTML = alert.properties.name;
     berthName.innerHTML = alert.properties.berth;
     alertTitle.innerHTML = alert.properties.message;
     alertDescription.innerHTML = alert.properties.description;
+    alertDate.innerHTML = alert.properties.date;
+    alertTime.innerHTML = alert.properties.time;    
+}
+
+const updateAlertCounter = () => {
+    const alertCount = document.querySelector('.alert-badget .label .number');
+    alertCount.innerHTML = alerts.length;
 }
 
 const focusOnAlert = (alert) => {
@@ -43,8 +52,10 @@ const consumeAlerts = () => {
             },
             speed: 2
         });
+        showInfoArea(false);
         currentIndex = 0;
     } else {
+        showInfoArea(true);
         currentIndex++;
     }
 }
@@ -73,12 +84,17 @@ const updateScreenTime = () => {
     el.innerHTML = getFormattedTime();    
 }
 
+const showInfoArea = (show) => {
+    const el = document.querySelector('.notifications-container');
+    el.style.display = (show) ? 'block' : 'none';
+}
+
 fetch('alerts.json')
     .then((response) => response.json())
     .then((data) => {
         alerts = data;
         maxSize = data.length;
-        
+
         map.fitBounds(getCoordinates(alerts), {
             padding : {
                 top: 80,
@@ -92,6 +108,7 @@ fetch('alerts.json')
         populateMap(alerts);
         updateScreenDate();
         updateScreenTime();
+        updateAlertCounter();
 
         setInterval(updateScreenDate, 3600000);
         setInterval(updateScreenTime, 1000);

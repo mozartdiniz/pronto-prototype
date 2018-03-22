@@ -22,6 +22,7 @@ body {
 
 .notifications-container {
   position: absolute;
+  display: none;
   top: 300px;
   bottom: 0;
   right: 0;
@@ -195,6 +196,10 @@ body {
   position: absolute;
   right: 69px;
   top: 0;
+}
+
+.alert-badget .label .number {
+  padding-right: 5px;
 }
 
 .alert-description {

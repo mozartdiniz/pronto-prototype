@@ -121,10 +121,7 @@ const initmap = (ships) => {
         }
     });
 
-    map.on('click', (e) => {
-        console.log(JSON.stringify({
-            coordinates: [e.lngLat.lng, e.lngLat.lat],
-        }));        
+    map.on('click', (e) => {     
         toggleShipDetailPanel();
         fitToBounds(map, e);
     });
