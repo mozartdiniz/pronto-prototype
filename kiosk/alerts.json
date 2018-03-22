@@ -7,7 +7,8 @@
             "message": "Vessel DELPHIS FINLAND is later",
             "description": "ETA at terminal might be 6 hours later than expected based on the PTD previous berth",
             "date": "21 Mar 2018",
-            "time": "09:34"
+            "time": "09:34",
+            "maxDraught": 7.8
         },
         "geometry": {
             "type": "Point",
@@ -25,12 +26,13 @@
             "message": "Vessel HOOGE is later",
             "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth",
             "date": "21 Mar 2018",
-            "time": "11:56"            
+            "time": "11:56",
+            "maxDraught": 1.2
         },
         "geometry": {
             "type": "Point",
             "coordinates": [
-                4.069801998153309,
+                4.079801998153309,
                 51.946650504743246
             ]
         }
@@ -44,7 +46,7 @@
             "description": "Pilot order for MSC ARUSHI R. Mar.21 - 16:30 and the PTD terminal Mar.21 - 17:00 are not aligned",
             "date": "21 Mar 2018",
             "time": "17:02",
-            "delta": 40                        
+            "maxDraught": 3
         },
         "geometry": {
             "type": "Point",
@@ -62,7 +64,8 @@
             "message": "Pilot order for MSC EYRA and PTD terminal are not the same",
             "description": "Pilot order for MSC EYRA Mar.21 - 15:30 and the PTD terminal Mar.21 - 16:30 are not aligned",
             "date": "21 Mar 2018",
-            "time": "21:28"            
+            "time": "21:28",
+            "maxDraught": 6           
         },
         "geometry": {
             "type": "Point",
@@ -152,8 +155,7 @@
             "message": "Vessel HOOGE is later",
             "description": "The SAMBA has no space short before arrival; the MSC ATLANTIC is still at the berth",
             "date": "22 Mar 2018",
-            "time": "09:54",
-            "delta": 20
+            "time": "09:54"
         },
         "geometry": {
             "type": "Point",
@@ -171,8 +173,7 @@
             "message": "Vessel HOOGE is later",
             "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth",
             "date": "22 Mar 2018",
-            "time": "10:30",
-            "delta": 60
+            "time": "10:30"
         },
         "geometry": {
             "type": "Point",

@@ -5,18 +5,21 @@ let alerts = [];
 
 const updateAlertDetails = (alert) => {
     const alertDescription = document.querySelector('.alert-text');
-    const shipName         = document.querySelector('.value.ship-name');
+    const shipName         = document.querySelector('.notifications > .ship-name');
     const berthName        = document.querySelector('.value.berth');
     const alertTitle       = document.querySelector('.alert-title');    
     const alertDate        = document.querySelector('.notifications .dates .date .label');
     const alertTime        = document.querySelector('.notifications .dates .hour .label');    
+    const draught          = document.querySelector('.notifications .draught');    
 
+    
     shipName.innerHTML = alert.properties.name;
     berthName.innerHTML = alert.properties.berth;
     alertTitle.innerHTML = alert.properties.message;
     alertDescription.innerHTML = alert.properties.description;
     alertDate.innerHTML = alert.properties.date;
-    alertTime.innerHTML = alert.properties.time;    
+    alertTime.innerHTML = alert.properties.time;   
+    draught.innerHTML = (alert.properties.maxDraught) ? alert.properties.maxDraught : 'n/a'; 
 }
 
 const updateAlertCounter = () => {
@@ -155,7 +158,7 @@ const init = () => {
     updateScreenTime();
     updateAlertCounter();
     addFullscreenEvent();
-    populateBloombergLane();
+    // populateBloombergLane();
 
     setInterval(updateScreenDate, 3600000);
     setInterval(updateScreenTime, 1000);

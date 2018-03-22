@@ -18,7 +18,7 @@ body {
 
 #map {
   position: absolute;
-  top: 300px;
+  top: 246px;
   bottom: 0;
   width: 65%;
 }
@@ -26,10 +26,10 @@ body {
 .notifications-container {
   position: absolute;
   display: none;
-  top: 300px;
+  top: 245px;
   bottom: 0;
   right: 0;
-  width: 35%;  
+  width: 35%;
 }
 
 .notifications {
@@ -196,7 +196,7 @@ body {
   top: 112px;
   left: 0;
   position: absolute;
-  padding: 60px 20px 30px 90px;
+  padding: 20px 20px 30px 90px;
 }
 
 .title-container .berth {
@@ -229,6 +229,11 @@ body {
 .notifications-line .alert-title {
   font-weight: bold;
   padding-bottom: 40px;
+}
+
+.notifications > .ship-name {
+  font-size: 35px;
+  padding-bottom: 30px;
 }
 
 .bloomberg-alerts {
@@ -285,10 +290,10 @@ body {
   background: #fed93a;
   padding: 10px;
   color: black;
-  right: 35%;
+  right: 30px;
   position: relative;
   float: right;
-  top: 105px;
+  top: 65px;
 }
 
 .alert-badget div {
