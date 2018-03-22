@@ -1,0 +1,162 @@
+[
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "JULIAM",
+            "berth": "ECT DDE",
+            "message": "Vessel DELPHIS FINLAND is later",
+            "description": "ETA at terminal might be 6 hours later than expected based on the PTD previous berth"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.035467144873053,
+                51.93678573462083
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "MAASHOLM",
+            "berth": "ECT DDE",
+            "message": "Vessel HOOGE is later",
+            "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.069801998153309,
+                51.946650504743246
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "THALASSA PISTIS",
+            "berth": "ECT DDN",
+            "message": "Pilot order for MSC ARUSHI R. and PTD terminal are not the same",
+            "description": "Pilot order for MSC ARUSHI R. Mar.21 - 16:30 and the PTD terminal Mar.21 - 17:00 are not aligned"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.029252691790049,
+                51.9616829228502
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "MSC ALTAMIRA",
+            "berth": "ECT DDE",
+            "message": "Pilot order for MSC EYRA and PTD terminal are not the same",
+            "description": "Pilot order for MSC EYRA Mar.21 - 15:30 and the PTD terminal Mar.21 - 16:30 are not aligned"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.017755953652795,
+                51.97766728869348
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "MSC ALGHERO",
+            "berth": "ECT DDE",
+            "message": "Vessel HOOGE is later",
+            "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                3.8451903912724106,
+                51.99498038400063
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "MAGNUS F",
+            "berth": "ECT DDE",
+            "message": "Vessel HOOGE is later",
+            "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.155201914396827,
+                51.952130626947394
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "MSC HEIDI",
+            "berth": "ECT DDE",
+            "message": "Vessel HOOGE is later",
+            "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.215164448540264,
+                51.91987072511242
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "CONESTE",
+            "berth": "ECT DDE",
+            "message": "Vessel HOOGE is later",
+            "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.416607887688542,
+                51.910881452446034
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "PHOENIX J",
+            "berth": "ECT NZ",
+            "message": "Vessel HOOGE is later",
+            "description": "The SAMBA has no space short before arrival; the MSC ATLANTIC is still at the berth"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.44913335612992,
+                51.89149516459585
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "MSC MADRID",
+            "berth": "ECT DDE",
+            "message": "Vessel HOOGE is later",
+            "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.672460453917381,
+                51.839793209371294
+            ]
+        }
+    }
+]

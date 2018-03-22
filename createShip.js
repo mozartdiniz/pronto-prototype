@@ -22,6 +22,7 @@ const createShipIcon = (feature) => {
 
   icon.addEventListener('click', (e) => {
       e.stopPropagation();
+      console.log(JSON.stringify(feature));
       toggleShipDetailPanel(feature);
   });
 

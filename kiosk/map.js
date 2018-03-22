@@ -6,3 +6,16 @@ const map = new mapboxgl.Map({
     zoom: 2,
     center: [4.899, 52.372]
 });
+
+const createAlertIcon = (alert) => {
+    const el = document.createElement('div');
+    el.className = 'alert-marker';
+
+    return el;
+}
+
+const createAlertMarker = (alert) => {
+    var marker = new mapboxgl.Marker(createAlertIcon(alert))
+        .setLngLat(alert.geometry.coordinates)
+        .addTo(map);    
+}
