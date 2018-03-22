@@ -3,10 +3,12 @@ html, body, #map {
     padding:0;
     font-weight: 300;
     font-family: sans-serif;
+    background: #191a1a;    
 }
 
 body {
   background: #191a1a;
+  background-attachment: fixed;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -105,7 +107,7 @@ body {
 
 .tv-switch {
   border-left: 1px solid #7b7b7b;
-  width: 352px;
+  width: 412px;
   height: 112px;
   float: right;
   box-sizing: border-box;
@@ -174,6 +176,19 @@ body {
   background-size: 50px;
   background-repeat: no-repeat;
   background-position: center right;
+}
+
+.fullscreen-mode {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 90px;
+  top: 43px;
+  background-image: url(expand.svg);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
 }
 
 .title-container {
