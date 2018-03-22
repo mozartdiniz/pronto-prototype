@@ -83,7 +83,8 @@
             "message": "Vessel HOOGE is later",
             "description": "ETA at terminal might be 1 day later than expected based on the PTD previous berth",
             "date": "22 Mar 2018",
-            "time": "02:07"            
+            "time": "02:07",
+            "speedOverGround": 20
         },
         "geometry": {
             "type": "Point",

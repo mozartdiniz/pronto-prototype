@@ -18,15 +18,40 @@ body {
 
 #map {
   position: absolute;
-  top: 246px;
+  top: 113px;
   bottom: 0;
   width: 65%;
+}
+
+.alert-list-container {
+  position: absolute;
+  top: 125px;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.alert-list-container .title {
+  font-size: 35px;
+  padding: 0 0 30px 0;
+}
+
+.alert-list .ship-name {
+  float: left;
+  font-size: 15px;
+  background: gray;
+  font-weight: normal;
+  padding: 3px 17px;
+  border-radius: 60px;
+  margin: 5px 5px 15px 5px;
 }
 
 .notifications-container {
   position: absolute;
   display: none;
-  top: 245px;
+  top: 375px;
   bottom: 0;
   right: 0;
   width: 35%;
@@ -193,14 +218,18 @@ body {
 }
 
 .title-container {
-  top: 112px;
+  top: 0;
   left: 0;
   position: absolute;
-  padding: 20px 20px 30px 90px;
+  padding: 16px 20px 0 90px;
+}
+
+.title-container .title {
+  font-size: 18px;
 }
 
 .title-container .berth {
-  font-size: 70px;
+  font-size: 60px;
 }
 
 .alert-icon {
@@ -233,7 +262,8 @@ body {
 
 .notifications > .ship-name {
   font-size: 35px;
-  padding-bottom: 30px;
+  padding: 30px 0;
+  border-top: 1px solid #7b7b7b;
 }
 
 .bloomberg-alerts {
@@ -290,10 +320,11 @@ body {
   background: #fed93a;
   padding: 10px;
   color: black;
-  right: 30px;
-  position: relative;
+  left: calc(65% - 190px);
+  position: absolute;
   float: right;
-  top: 65px;
+  top: 125px;
+  z-index: 20;
 }
 
 .alert-badget div {

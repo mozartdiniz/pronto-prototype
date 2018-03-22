@@ -30,7 +30,7 @@ const updateAlertCounter = () => {
 const focusOnAlert = (alert) => {
     map.flyTo({
         center: alert.geometry.coordinates,
-        zoom: 14,
+        zoom: (alert.properties.speedOverGround) ? 11 : 15,
         screenSpeed: 1
     });
 }
@@ -42,8 +42,9 @@ const getCoordinates = (alerts) => {
 }
 
 const consumeAlerts = () => {
-    focusOnAlert(alerts[currentIndex]);
-    updateAlertDetails(alerts[currentIndex]);
+    const alert = alerts[currentIndex];
+    focusOnAlert(alert);
+    updateAlertDetails(alert);
 
     if (currentIndex === maxSize - 1) {
         map.fitBounds(getCoordinates(alerts), {
@@ -55,9 +56,11 @@ const consumeAlerts = () => {
             },
             speed: 2
         });
+
         showInfoArea(false);
         currentIndex = 0;
     } else {
+        populateAlertList(currentIndex);
         showInfoArea(true);
         currentIndex++;
     }
@@ -112,32 +115,15 @@ const addFullscreenEvent = () => {
     el.addEventListener('click', toggleFullScreen);
 }
 
-const superFakeColorGenerator = (index) => {
-    if (index < 3) {
-        return 'background: #fed93a;';
-    }
-
-    if (index < 7) {
-        return 'background: #fb7d35;';
-    }
-
-    return 'background: #fb1c00;';
-}
-
-const populateBloombergLane = () => {
-    const el = document.querySelector('.bloomberg-alerts .bloomberg-alerts-scroll');
-    const footer = document.querySelector('.bloomberg-alerts .footer');
-    const width = Math.round(window.innerWidth / 10);
-
-    el.style.width = `${alerts.length * width}px`;
-    footer.style.width = `${alerts.length * width}px`;
-
+const populateAlertList = (selectedAlert) => {
+    const el = document.querySelector('.alert-list-container .alert-list');
+    el.innerHTML = '';
+    
     alerts.forEach((alert, index) => {
-        el.innerHTML += `<div class="alert-card" style="margin-left: ${alert.properties.delta}px">
-            <div class="ship-name">
-                ${alert.properties.name}
-                <div class="ship-anchor"></div>
-            </div>
+        const color = (selectedAlert === index) ? 'red' : 'gray';
+
+        el.innerHTML += `<div class="ship-name" style="background-color: ${color};">
+            ${alert.properties.name}
         </div>`;
     });
 }
@@ -158,7 +144,7 @@ const init = () => {
     updateScreenTime();
     updateAlertCounter();
     addFullscreenEvent();
-    // populateBloombergLane();
+    populateAlertList();
 
     setInterval(updateScreenDate, 3600000);
     setInterval(updateScreenTime, 1000);
